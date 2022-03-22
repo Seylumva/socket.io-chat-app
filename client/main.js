@@ -66,7 +66,6 @@ socket.on("message-received", (messageObj) => {
 });
 
 socket.on("user-leaving", (userCount) => {
-  console.log(userCount);
   activeUsers = userCount;
   userCountLabel.textContent = activeUsers;
 });
