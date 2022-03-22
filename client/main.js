@@ -64,3 +64,9 @@ socket.on("message-received", (messageObj) => {
   const { message, username } = messageObj;
   new ChatMessage(message, username, messageContainer);
 });
+
+socket.on("user-leaving", (userCount) => {
+  console.log(userCount);
+  activeUsers = userCount;
+  userCountLabel.textContent = activeUsers;
+});
