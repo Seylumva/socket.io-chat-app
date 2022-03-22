@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sign-in.hidden + .user-count {
+  display: block;
+}
+
+.user-count {
+  display: none;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #fff;
+}
+
+.sign-in {
+  min-height: 5vh;
+}
+
+.sign-in button {
+  color: #fff;
+  background: rgb(14, 148, 115);
+  cursor: pointer;
+}
+
+.sign-in input,
+.sign-in button {
+  border: none;
+  padding-inline: 1rem;
+}
+
+.chat-form {
+  min-height: 10vh;
+}
+
+.sign-in,
+.chat-form {
+  display: flex;
+}
+
+.sign-in input,
+.chat-form textarea {
+  flex: 1 0;
+}
+
+.chat-form textarea,
+.chat-form button {
+  padding-inline: 1rem;
+}
+
+.chat-form textarea {
+  padding: 0.5rem;
+  resize: none;
+  border: none;
+}
+
+.chat-form button {
+  background: rgb(113, 191, 223);
+  border: none;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.chat-form button[disabled] {
+  background: rgb(128, 10, 33);
+  color: #afafaf;
+  cursor: not-allowed;
+}
+
+.chat-form textarea[disabled] {
+  cursor: not-allowed;
+}
+
+.messages {
+  background: #222;
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 2rem;
+  white-space: pre-wrap;
+  padding: 2rem 0.5rem 3rem;
+}
+
+.message {
+  background: rgb(18, 18, 18);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.5em 0.75em;
+  position: relative;
+}
+
+.message[data-me] {
+  align-self: flex-end;
+  background: rgb(14, 148, 115);
+}
+
+.message[data-server] {
+  background: rgb(163, 0, 33);
+}
+
+.message::before {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.message[data-server]::before,
+.message[data-other]::before {
+  position: absolute;
+  display: block;
+  top: 110%;
+  left: 5px;
+}
+
+.message[data-server]::before {
+  content: "Server";
+}
+
+.message[data-other]::before {
+  content: attr(data-other);
+}
+
+.message[data-me]::before {
+  content: "Me";
+  position: absolute;
+  display: block;
+  top: 110%;
+  right: 5px;
+}
+
+.hidden {
+  display: none;
+}
